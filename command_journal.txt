@@ -5,3 +5,22 @@
 === Database Configuration ===
 - Command 3
 - Command 4
+
+mongod --version
+db version v7.0.2
+Build Info: {
+    "version": "7.0.2",
+    "gitVersion": "02b3c655e1302209ef046da6ba3ef6749dd0b62a",
+    "openSSLVersion": "OpenSSL 1.1.1f  31 Mar 2020",
+    "modules": [],
+    "allocator": "tcmalloc",
+    "environment": {
+        "distmod": "ubuntu2004",
+        "distarch": "x86_64",
+        "target_arch": "x86_64"
+    }
+}
+
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.40.2_amd64.deb
+sudo dpkg -i mongodb-compass_1.40.2_amd64.deb
+sudo mongodb-compass
