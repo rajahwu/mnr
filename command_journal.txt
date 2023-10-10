@@ -1,0 +1,7 @@
+=== Project Setup ===
+- Command 1
+- Command 2
+
+=== Database Configuration ===
+- Command 3
+- Command 4

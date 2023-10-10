@@ -1,0 +1,20 @@
+{
+  "name": "mrn",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev:server": "bun --hot run ./src/server/server.ts"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.19",
+    "@types/node": "^20.8.4",
+    "bun-types": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
