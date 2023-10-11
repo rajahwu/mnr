@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev:server": "bun --hot run ./src/server/server.ts",
-    "dev:build-react": "bun build ./src/index.tsx --outfile public/main.js --complie"
+    "dev:build-react": "bun build ./src/index.tsx --outfile public/main.js --complie --watch"
   },
   "devDependencies": {
     "@types/cors": "^2.8.14",

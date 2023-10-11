@@ -22967,8 +22967,8 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
       }
       function shouldConstruct(Component) {
-        var prototype3 = Component.prototype;
-        return !!(prototype3 && prototype3.isReactComponent);
+        var prototype = Component.prototype;
+        return !!(prototype && prototype.isReactComponent);
       }
       function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
         if (type == null) {
@@ -23007,7 +23007,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
         return "";
       }
-      var hasOwnProperty2 = Object.prototype.hasOwnProperty;
+      var hasOwnProperty = Object.prototype.hasOwnProperty;
       var loggedTypeFailures = {};
       var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
       function setCurrentlyValidatingElement(element) {
@@ -23023,7 +23023,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       }
       function checkPropTypes(typeSpecs, values, location, componentName, element) {
         {
-          var has = Function.call.bind(hasOwnProperty2);
+          var has = Function.call.bind(hasOwnProperty);
           for (var typeSpecName in typeSpecs) {
             if (has(typeSpecs, typeSpecName)) {
               var error$1 = undefined;
@@ -23053,7 +23053,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
         }
       }
       var isArrayImpl = Array.isArray;
-      function isArray2(a) {
+      function isArray(a) {
         return isArrayImpl(a);
       }
       function typeName(value) {
@@ -23099,7 +23099,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       }
       function hasValidRef(config) {
         {
-          if (hasOwnProperty2.call(config, "ref")) {
+          if (hasOwnProperty.call(config, "ref")) {
             var getter = Object.getOwnPropertyDescriptor(config, "ref").get;
             if (getter && getter.isReactWarning) {
               return false;
@@ -23110,7 +23110,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
       }
       function hasValidKey(config) {
         {
-          if (hasOwnProperty2.call(config, "key")) {
+          if (hasOwnProperty.call(config, "key")) {
             var getter = Object.getOwnPropertyDescriptor(config, "key").get;
             if (getter && getter.isReactWarning) {
               return false;
@@ -23219,7 +23219,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
             warnIfStringRefCannotBeAutoConverted(config, self2);
           }
           for (propName in config) {
-            if (hasOwnProperty2.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+            if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
               props[propName] = config[propName];
             }
           }
@@ -23319,27 +23319,27 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
           setCurrentlyValidatingElement$1(null);
         }
       }
-      function validateChildKeys(node2, parentType) {
+      function validateChildKeys(node, parentType) {
         {
-          if (typeof node2 !== "object") {
+          if (typeof node !== "object") {
             return;
           }
-          if (isArray2(node2)) {
-            for (var i = 0;i < node2.length; i++) {
-              var child = node2[i];
+          if (isArray(node)) {
+            for (var i = 0;i < node.length; i++) {
+              var child = node[i];
               if (isValidElement(child)) {
                 validateExplicitKey(child, parentType);
               }
             }
-          } else if (isValidElement(node2)) {
-            if (node2._store) {
-              node2._store.validated = true;
+          } else if (isValidElement(node)) {
+            if (node._store) {
+              node._store.validated = true;
             }
-          } else if (node2) {
-            var iteratorFn = getIteratorFn(node2);
+          } else if (node) {
+            var iteratorFn = getIteratorFn(node);
             if (typeof iteratorFn === "function") {
-              if (iteratorFn !== node2.entries) {
-                var iterator = iteratorFn.call(node2);
+              if (iteratorFn !== node.entries) {
+                var iterator = iteratorFn.call(node);
                 var step;
                 while (!(step = iterator.next()).done) {
                   if (isValidElement(step.value)) {
@@ -23414,7 +23414,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
             var typeString;
             if (type === null) {
               typeString = "null";
-            } else if (isArray2(type)) {
+            } else if (isArray(type)) {
               typeString = "array";
             } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
               typeString = "<" + (getComponentNameFromType(type.type) || "Unknown") + " />";
@@ -23432,7 +23432,7 @@ var require_react_jsx_dev_runtime_development = __commonJS((exports) => {
             var children = props.children;
             if (children !== undefined) {
               if (isStaticChildren) {
-                if (isArray2(children)) {
+                if (isArray(children)) {
                   for (var i = 0;i < children.length; i++) {
                     validateChildKeys(children[i], type);
                   }
@@ -23473,6 +23473,38 @@ var require_jsx_dev_runtime = __commonJS((exports, module) => {
 
 // src/index.tsx
 var client = __toESM(require_client(), 1);
+
+// src/components/header.tsx
+var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
+var Header = ({ message }) => {
+  return jsx_dev_runtime.jsxDEV("div", {
+    className: "header",
+    children: message
+  }, undefined, false, undefined, this);
+};
+var header_default = Header;
+
+// src/components/ContestList.tsx
+var import_react = __toESM(require_react(), 1);
+
+// src/components/ContestPreview.tsx
+var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var ContestPreview = ({ contest }) => {
+  return jsx_dev_runtime2.jsxDEV("div", {
+    className: "contest-preview",
+    children: [
+      jsx_dev_runtime2.jsxDEV("div", {
+        className: "category",
+        children: contest.categoryName
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime2.jsxDEV("div", {
+        className: "contest-preview",
+        children: contest.contestName
+      }, undefined, false, undefined, this)
+    ]
+  }, contest.id, true, undefined, this);
+};
+var ContestPreview_default = ContestPreview;
 
 // node_modules/axios/lib/helpers/bind.js
 function bind(fn, thisArg) {
@@ -25444,24 +25476,55 @@ var axios_default = axios;
 
 // src/public-config.ts
 var PORT = typeof process !== "undefined" ? process.env.PORT : 8080;
-var HOST = typeof process !== "undefined" ? process.env.HOST : "0.0.0.0";
-var API_SERVER_URL = `http://${PORT}:${HOST}/api`;
+var HOST = typeof process !== "undefined" ? process.env.HOST : "localhost";
+var API_SERVER_URL = `http://${HOST}:${PORT}/api`;
+
+// src/api-client.ts
+var fetchContest = async () => {
+  const res = await axios_default.get(`${API_SERVER_URL}/contests`);
+  return res.data;
+};
+
+// src/components/ContestList.tsx
+var jsx_dev_runtime3 = __toESM(require_jsx_dev_runtime(), 1);
+var ContestList = ({ initialContests }) => {
+  const [contests, setContest] = import_react.useState(initialContests);
+  import_react.useEffect(() => {
+    fetchContest().then((data3) => setContest(data3));
+  }, []);
+  return jsx_dev_runtime3.jsxDEV("div", {
+    className: "contest-list",
+    children: contests.map((contest, i) => jsx_dev_runtime3.jsxDEV(ContestPreview_default, {
+      contest
+    }, i, false, undefined, this))
+  }, undefined, false, undefined, this);
+};
+var ContestList_default = ContestList;
 
 // src/components/app.tsx
-var jsx_dev_runtime = __toESM(require_jsx_dev_runtime(), 1);
-function App() {
-  return jsx_dev_runtime.jsxDEV("div", {
-    children: "Hello from App"
-  }, undefined, false, undefined, this);
+var jsx_dev_runtime4 = __toESM(require_jsx_dev_runtime(), 1);
+function App({ initialData }) {
+  return jsx_dev_runtime4.jsxDEV("div", {
+    className: "container",
+    children: [
+      jsx_dev_runtime4.jsxDEV(header_default, {
+        message: "Naming Contest"
+      }, undefined, false, undefined, this),
+      jsx_dev_runtime4.jsxDEV(ContestList_default, {
+        initialContests: initialData.contests
+      }, undefined, false, undefined, this)
+    ]
+  }, undefined, true, undefined, this);
 }
 
 // src/index.tsx
-var jsx_dev_runtime2 = __toESM(require_jsx_dev_runtime(), 1);
+var jsx_dev_runtime5 = __toESM(require_jsx_dev_runtime(), 1);
 var appContainer = document.getElementById("app");
 if (appContainer) {
   const root = client.createRoot(appContainer);
-  root.render(jsx_dev_runtime2.jsxDEV(App, {}, undefined, false, undefined, this));
-  axios_default.get(`${API_SERVER_URL}/contests`).then((res) => console.log(res));
+  root.render(jsx_dev_runtime5.jsxDEV(App, {
+    initialData: { contests: [] }
+  }, undefined, false, undefined, this));
 } else {
   console.error("App Container not found");
 }

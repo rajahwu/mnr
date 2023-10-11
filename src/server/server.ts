@@ -1,10 +1,12 @@
 import express from "express";
+import cors from "cors";
 import os from "node:os";
 
 import config from "./config";
 import apiRouter from "./api-router"
 
 const server = express();
+server.use(cors())
 
 server.use(express.static("public"));
 
