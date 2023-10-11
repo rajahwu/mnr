@@ -1,23 +1,15 @@
 import { createRoot } from "react-dom/client";
-import React from 'react';
+import axios from "axios";
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      div: React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-    }
-  }
-}
+import { API_SERVER_URL } from "./public-config";
+import App from "./components/app";
 
-const App = () => {
-  return <div>Hello react</div>
-}
+const appContainer = document.getElementById("app");
 
-const container = document.getElementById("app")
-
-if (container) {
-  const root = createRoot(container)
-  root.render(<App />)
+if (appContainer) {
+  const root = createRoot(appContainer);
+  root.render(<App />);
+  axios.get(`${API_SERVER_URL}/contests`).then((res) => console.log(res));
 } else {
-  console.error("Element with id 'app' not found")
+  console.error("App Container not found");
 }

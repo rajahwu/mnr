@@ -7,6 +7,7 @@
 - Command 4
 
 mongodb-compass mongodb://localhost:27017
+curl localhost:8080/api/contests | json_pp
 
 mongod --version
 db version v7.0.2
