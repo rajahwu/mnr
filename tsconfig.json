@@ -20,5 +20,5 @@
       "web"
     ]
   },
-  "include": ["src"]
+  "include": ["src", "public"]
 }
