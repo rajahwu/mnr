@@ -6,6 +6,8 @@
 - Command 3
 - Command 4
 
+mongodb-compass mongodb://localhost:27017
+
 mongod --version
 db version v7.0.2
 Build Info: {
