@@ -3,10 +3,11 @@ import cors from "cors";
 import os from "node:os";
 
 import config from "./config";
-import apiRouter from "./api-router"
+import apiRouter from "./api-router";
+import serverRender from "./render";
 
 const server = express();
-server.use(cors())
+server.use(cors());
 
 server.use(express.static("public"));
 
@@ -14,9 +15,10 @@ server.set("view engine", "ejs");
 
 server.use("/api", apiRouter);
 
-server.use("/", (req, res) => {
+server.use("/", async (req, res) => {
+  const { initialMarkup } = await serverRender();
   res.render("index", {
-    initialContent: "Loading..."
+    initialMarkup
   });
 });
 

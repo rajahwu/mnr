@@ -1,5 +1,3 @@
-import axios from "axios";
-import { API_SERVER_URL } from "../public-config";
 import { useEffect, useState } from "react";
 
 import { type ContestEntry } from "./app";
